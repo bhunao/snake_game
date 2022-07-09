@@ -1,1 +1,1 @@
-![main2] (imgs/read.gif)
+![main2](imgs/read.gif)
