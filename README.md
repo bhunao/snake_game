@@ -8,4 +8,4 @@ A simple snake game made with **python** and **pygame**.
 - Space to Restart the game.  
 
 ## Gameplay
-!(gameplay)[imgs/gameplay_v1.gif]
+![](imgs/gameplay_v1.gif)
