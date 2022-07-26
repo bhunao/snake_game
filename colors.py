@@ -23,3 +23,11 @@ class BROWN:
     COLOR3 = Color("#432818")
     COLOR4 = Color("#bb9457")
     COLOR5 = Color("#6f1d1b")
+
+
+class DREAMER:
+    COLOR1 = Color("#2F3030")
+    COLOR2 = Color("#FF6B6B")
+    COLOR3 = Color("#BA2C38")
+    COLOR4 = Color("#FFFFFF")
+    COLOR5 = Color("#F9E3E1")
