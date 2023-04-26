@@ -44,7 +44,7 @@ while True:
     for text in texts:
         text.draw(screen)
 
-    # T: separete when player collides with food and when it is near the food
+    # TODO: separete when player collides with food and when it is near the food
     if abs(food.pos.x - snake.pos.x) <= 1 and abs(food.pos.y - snake.pos.y) <= 1:
         snake.grow(food)
         food.pos = Vector2(

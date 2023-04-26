@@ -3,7 +3,7 @@ from pygame import Vector2, draw, font, Color, Rect, mixer, event
 
 from custom_events import ANIMATION_ON_GROW, PLAYER_DEATH
 from functions import change_color
-from colors import PB as pallet
+from colors import DREAMER as PALLET
 
 
 class BaseObject:
@@ -33,7 +33,7 @@ class Snake(BaseObject):
     def __init__(self, pos=(5, 5), color=None):
         super().__init__(pos, color)
         self.pos = Vector2(pos)
-        segment_color = pallet.COLOR2
+        segment_color = PALLET.COLOR2
         self.segments = [
             [Vector2(self.pos.x, self.pos.y + add),
              segment_color,
@@ -97,10 +97,10 @@ class Snake(BaseObject):
         for segment, color, type_ in self.segments:
             pos = segment
             self._draw(screen, pos, color, border_radius=2)
-            self._draw(screen, pos, pallet.COLOR3, border_radius=2, width=5)
+            self._draw(screen, pos, PALLET.COLOR3, border_radius=2, width=5)
 
     def grow(self, food):
-        self.segments.insert(1, [food.pos, pallet.COLOR4, 1])
+        self.segments.insert(1, [food.pos, PALLET.COLOR4, 1])
         pygame.event.post(ANIMATION_ON_GROW)
         # mixer.Sound.play(self.eat_sound)
 
@@ -108,7 +108,7 @@ class Snake(BaseObject):
 class Food(BaseObject):
     def __init__(self, pos=(5, 5)):
         super().__init__(pos)
-        self.color = pallet.COLOR1
+        self.color = PALLET.COLOR1
 
 
 class Text:
@@ -116,14 +116,14 @@ class Text:
         self.pos = Vector2(pos)
         self.text = text if text else ""
         self.size = size
-        self.color = color if color else pallet.COLOR4
+        self.color = color if color else PALLET.COLOR4
         self.font = font_ if font_ else font.SysFont('Arial', size)
 
     def draw(self, screen, text=""):
         text = self.font.render(f'{self.text}{text}', True, self.color)
         text_rect = text.get_rect(center=(self.pos))
-        draw.rect(screen, pallet.COLOR3, text_rect)
-        draw.rect(screen, pallet.COLOR2, text_rect, width=1)
+        draw.rect(screen, PALLET.COLOR3, text_rect)
+        draw.rect(screen, PALLET.COLOR2, text_rect, width=1)
         screen.blit(text, text_rect)
 
 
@@ -151,12 +151,12 @@ class Background:
     def draw(self, screen):
         for list_ in self.cells:
             for cell in list_:
-                cell.draw(screen, pallet.COLOR4)
-                cell.draw(screen, color=pallet.COLOR5, width=5)
+                cell.draw(screen, PALLET.COLOR4)
+                cell.draw(screen, color=PALLET.COLOR5, width=5)
 
 
 class Effect:
-    def __init__(self, pos, color: Color = pallet.COLOR3, size=1, total_frames=80):
+    def __init__(self, pos, color: Color = PALLET.COLOR3, size=1, total_frames=80):
         self.pos: Vector2 = Vector2(pos)
         self.color: Color = color
         self.size: int = size
